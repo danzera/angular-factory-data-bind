@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Chi MEAN</title>
+
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/client.min.js"></script>
+
+  </head>
+  <body>
+    <div class="main container-fluid"><!--main container-->
+      <div class="row"><!--row 1-->
+        <div class="col-md-3"><!--column 1-->
+          <div ng-controller="inputController">
+            <table class="movieTable">
+              <tbody>
+                <tr>
+                  <td class="text-right"><label for="movieName">Name</label></td>
+                  <td><input type="text" name="movieName" placeholder="Movie Name" ng-model="movie.name"></td>
+                </tr>
+                <tr>
+                  <td class="text-right"><label for="movieDescription">Description</label></td>
+                  <td><input type="text" name="movieDescription" placeholder="Description" ng-model="movie.description"></td>
+                </tr>
+                <tr>
+                  <td class="text-right"><label for="movieDirector">Director</label></td>
+                  <td><input type="text" name="movieDirector" placeholder="Director" ng-model="movie.director"></td>
+                </tr>
+                <tr>
+                  <td class="text-right"><label for="movieRunTime">Running Time</label></td>
+                  <td><input type="text" name="movieRunTime" placeholder="Run Time" ng-model="movie.runTime"></td>
+                </tr>
+                <tr>
+                  <td></td><!--empty cell-->
+                  <td><button ng-click="addMovie(movie)" class="btn btn-primary">Add Movie!</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!--end inputController-->
+        </div><!--end column 1-->
+        <div class="col-md-9"><!--column 2-->
+          <div ng-controller="outputController">
+            <div class="displayMovies" ng-repeat="movie in moviesArray">
+              <div class="row">
+                <p>Movie: {{movie.name}}</p>
+                <p>Director: {{movie.director}}</p>
+                <p>Run Time: {{movie.runTime}}</p>
+                <p>Description: {{movie.description}}</p>
+              </div>
+            </div><!--end ng-repeat-->
+          </div><!--end outputController-->
+        </div><!--end column 2-->
+      </div><!--row 1-->
+    </div><!--end main container-->
+  </body>
+</html>
